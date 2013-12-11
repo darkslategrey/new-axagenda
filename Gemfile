@@ -8,9 +8,16 @@ gem 'activesupport', '= 3.2.14'
 gem 'haml', '= 4.0.3'
 gem 'mysql2', '= 0.3.13'
 gem "sinatra", "= 1.4.3"
+gem "sinatra-assetpack"
 gem 'sqlite3', '= 1.3.8'
 gem 'sinatra-activerecord', '= 1.2.3'
 gem 'rack', '= 1.4.5'
+
+
+group :development do
+  gem 'guard'
+  gem 'guard-puma'
+end
 
 # gem 'rake'
 # gem 'sinatra', '~> 1.2.3'

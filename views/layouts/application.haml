@@ -6,9 +6,9 @@
     %meta{'http-equiv'=>"Cache-Control", :content=>"no-store"}/
     %meta{'http-equiv'=>"Cache-Control", :content=>"no-cache"}/
     %meta{'http-equiv'=>"Pragma", :content=>"no-cache, must-revalidate, no-store"}/
-    %link{:rel=>"shortcut icon", :href=>url("images/cubedriveIcon.png"), :type=>"image/x-icon"}
-    = css :application
-    = js :application
+    %link{:rel=>"shortcut icon", :href=>url("/image/cubedriveIcon.png"), :type=>"image/x-icon"}
+    != css :application
+    != js :application
 
   %body
     = yield

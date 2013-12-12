@@ -1,25 +1,25 @@
 # -*- coding: utf-8 -*-
 
-class Calendar < CalDB # ActiveRecord::Base
+class Calendar # < CalDB # ActiveRecord::Base
   # db_config = YAML.load_file(File.join(File.dirname(__FILE__), '../config/databases.yml'))
   # establish_connection db_config['calendars']
 
-  attr_accessible :id, :name, :code, :description, :color, :hide
+  # attr_accessible :id, :name, :code, :description, :color, :hide
 
-  @@logger
+  # @@logger
 
   ACTIONS_JOBENFANCE    = 1
   ACTIONS_JOBDEPENDANCE = 2
 
-  REGIE_JOBENFANCE      = 3
-  REGIE_JOBDEPENDANCE   = 4
+  # REGIE_JOBENFANCE      = 3
+  # REGIE_JOBDEPENDANCE   = 4
 
   # @@mylogger = Logger.new(STDOUT)
 
 
-  def hidden?
-    hide == true
-  end
+  # def hidden?
+  #   hide == true
+  # end
 
   # calendarId:1
   # startDay:2013-01-29
@@ -120,10 +120,7 @@ class Calendar < CalDB # ActiveRecord::Base
 
   def self.get_events(params={})
     events = []
-    # events += EventTypeJd.first.get_regies(Calendar::REGIE_JOBDEPENDANCE, params)
     events += EventTypeJd.first.get_actions(Calendar::ACTIONS_JOBDEPENDANCE, params)
-
-    # events += EventTypeJe.first.get_regies(Calendar::REGIE_JOBENFANCE, params)
     events += EventTypeJe.first.get_actions(Calendar::ACTIONS_JOBENFANCE, params)
     events.flatten
   end

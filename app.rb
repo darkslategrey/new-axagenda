@@ -4,13 +4,19 @@ require 'sinatra/assetpack'
 require 'haml'
 require 'json'
 require 'active_record'
+require 'octopus'
+
 
 $LOAD_PATH.unshift './models'
 
 Dir["models/*.rb"].each { |model| require "./#{model}" }
 
+db_config = YAML.load_file('./config/databases.yml')
+ActiveRecord::Base.establish_connection db_config['jobenfance']
+
 # Helpers
 require './lib/render_partial'
+require './lib/axlogger'
 
 class AxAgenda < Sinatra::Base
   # Set Sinatra variables
@@ -22,6 +28,13 @@ class AxAgenda < Sinatra::Base
   set :haml, {:format => :html5} # default Haml format is :xhtml
 
   register Sinatra::AssetPack
+
+  configure do
+    enable :logging
+    file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+    file.sync = true
+    use Rack::CommonLogger, file
+  end
 
   assets do
     serve '/js',        :from => 'public/js'
@@ -45,19 +58,29 @@ class AxAgenda < Sinatra::Base
 
   end
 
-
-
   # Application routes
   get '/' do
     haml :index, :layout => :'layouts/application'
   end
 
   post '/initialLoad' do
+    logger.info "Initial logger"
     send_file 'public/fakeData/initLoad.json'
   end
 
   post '/loadEvent' do
-    send_file 'public/fakeData/listEvent.json'
+    events = []
+    [:jobenfance, :jobdependance].each { |d| events << Societe.using(d).first.events };
+
+    # events += Event.load(params, 'jobdependance')
+
+    # events = Calendar.get_events(params)
+    # my_events = events.map { |e| e.to_mycalendar }
+    # my_events.sort! { |a,b| Date.parse(a['ymd']) <=> Date.parse(b['ymd']) }
+    logger.info("total des events: #{events.flatten.size}")
+    # logger.debug(my_events)
+    # data = {'total' =>  my_events.size, 'results' => my_events, 'success' => true }
+    # haml data.to_json, :layout => false
   end
 
 end

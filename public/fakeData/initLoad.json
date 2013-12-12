@@ -1,1 +1,67 @@
-{"cs":[{"createByDblclick":false,"monthFormat":"m/d","weekFormat":"m/d(D)","class":"CalendarSettingUIModel","hideInactiveRow":false,"dayFormat":"l M d Y","fromtoFormat":"m/d/Y","id":"1","intervalSlot":"30","readOnly":false,"hourFormat":"24","singleDay":false,"startDay":"1","activeEndTime":"19:00","activeStartTime":"09:00","language":"en"}],"owned":[{"shares":[],"id":"1","hide":false,"color":"blue","description":null,"permit":"all","name":"demo","class":"CalendarTypeUIModel","isShared":false}],"shared":[],"re":[]}
+{
+    "cs": [
+	{
+	    "createByDblclick": false,
+	    "monthFormat": "d/m",
+	    "weekFormat": "d/m(D)",
+	    "class": "CalendarSettingUIModel",
+	    "hideInactiveRow": true,
+	    "dayFormat": "l d M Y",
+	    "fromtoFormat": "d/m/Y",
+	    "id": "1",
+	    "intervalSlot": "15",
+	    "readOnly": false,
+	    "hourFormat": "24",
+	    "singleDay": false,
+	    "startDay": "1",
+	    "activeEndTime": "19:00",
+	    "activeStartTime": "09:00",
+	    "language": "fr"
+	},
+	{
+	    "createByDblclick": false,
+	    "monthFormat": "d/m",
+	    "weekFormat": "d/m(D)",
+	    "class": "CalendarSettingUIModel",
+	    "hideInactiveRow": true,
+	    "dayFormat": "l d M Y",
+	    "fromtoFormat": "d/m/Y",
+	    "id": "2",
+	    "intervalSlot": "15",
+	    "readOnly": false,
+	    "hourFormat": "24",
+	    "singleDay": false,
+	    "startDay": "1",
+	    "activeEndTime": "19:00",
+	    "activeStartTime": "09:00",
+	    "language": "fr"
+	}
+    ],
+    "owned": [
+	{
+	    "id": "1",
+	    "hide": false,
+	    "color": "blue",
+	    "description": "Actions Jobenfance",
+	    "permit": "all",
+	    "name": "Actions Jobenfance",
+	    "class": "CalendarTypeUIModel",
+	    "isShared": true
+	},
+	{
+	    "id": "2",
+	    "hide": false,
+	    "color": "purple",
+	    "description": "Actions Jobdependance",
+	    "permit": "all",
+	    "name": "Actions Jobdependance",
+	    "class": "CalendarTypeUIModel",
+	    "isShared": true
+	}
+    ],
+    "shared": [
+    ],
+    "re": [
+    ],
+    "success": "true"
+}

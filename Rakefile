@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'bundler'
 require 'rake'
-
+require 'active_record'
+require 'sinatra/activerecord/rake'
 
 Bundler.setup
 

@@ -12,11 +12,15 @@ gem "sinatra-assetpack"
 gem 'sqlite3', '= 1.3.8'
 gem 'sinatra-activerecord', '= 1.2.3'
 gem 'rack', '= 1.4.5'
+gem 'yell'
+gem 'ar-octopus'
+
 
 
 group :development do
   gem 'guard'
   gem 'guard-puma'
+  gem 'rspec'
 end
 
 # gem 'rake'
